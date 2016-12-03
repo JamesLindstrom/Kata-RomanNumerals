@@ -1,10 +1,15 @@
 //Main object
-var main = {};
+var main = {
+	arabicToRoman : function(arabic){
+		return "I";
+	}
+};
 
 //Test object
 var test = {
 	run : function(){
-
+		//Test 1
+		test.compare(1, main.arabicToRoman(1), "I");
 	},
 	
 	//Does a comparison between an input and an output.
