@@ -1,11 +1,13 @@
 //Main object
 var main = {
 	arabicToRoman : function(arabic){
-		if(arabic === 5){
-			return "V";
-		}else{
-			return "I".repeat(arabic);
+		var roman = "";
+		if(arabic >= 5){
+			roman += "V";
+			arabic -= 5;
 		}
+		roman += "I".repeat(arabic);
+		return roman;
 	}
 };
 
@@ -20,6 +22,9 @@ var test = {
 		
 		//Test 3
 		test.compare(3, main.arabicToRoman(5), "V");
+		
+		//Test 4
+		test.compare(4, main.arabicToRoman(6), "VI");
 	},
 	
 	//Does a comparison between an input and an output.
