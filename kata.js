@@ -1,7 +1,7 @@
 //Main object
 var main = {
 	arabicToRoman : function(arabic){
-		return "I";
+		return "I".repeat(arabic);
 	}
 };
 
@@ -10,6 +10,9 @@ var test = {
 	run : function(){
 		//Test 1
 		test.compare(1, main.arabicToRoman(1), "I");
+		
+		//Test 2
+		test.compare(2, main.arabicToRoman(2), "II");
 	},
 	
 	//Does a comparison between an input and an output.
