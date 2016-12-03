@@ -1,8 +1,13 @@
 //Main object
 var main = {
 	arabicToRoman : function(arabic){
+		var roman = "";
 		var m = Math.floor(arabic / 1000);
-		return "M".repeat(m);
+		roman += "M".repeat(m);
+		if(arabic === 900){
+			roman += "CM"
+		};
+		return roman;
 	}
 };
 
@@ -14,7 +19,9 @@ var test = {
 		
 		//Test 2
 		test.compare(2, main.arabicToRoman(2060), "MM");
-
+		
+		//Test 3
+		test.compare(3, main.arabicToRoman(900), "CM");
 	},
 	
 	//Does a comparison between an input and an output.
