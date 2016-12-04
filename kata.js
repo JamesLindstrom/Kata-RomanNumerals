@@ -11,6 +11,9 @@ var main = {
 		}else if(arabic >= 500){
 			roman += "D";
 			arabic -= 500;
+		}else if(arabic >= 400){
+			roman += "CD";
+			arabic -= 400;
 		};
 		return roman;
 	}
@@ -36,6 +39,9 @@ var test = {
 		
 		//Test 6
 		test.compare(6, main.arabicToRoman(2550), "MMD");
+		
+		//Test 7
+		test.compare(7, main.arabicToRoman(3450), "MMMCD");
 	},
 	
 	//Does a comparison between an input and an output.
