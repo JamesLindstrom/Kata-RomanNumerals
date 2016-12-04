@@ -33,6 +33,21 @@ var main = {
 			arabic -= 40;
 		};
 		
+		//10s and 5s
+		var x = Math.floor(arabic / 10);
+		roman += "X".repeat(x);
+		arabic -= x * 10;
+		if(arabic >= 9){
+			roman += "IX";
+			arabic -= 9;
+		}else if(arabic >= 5){
+			roman += "V";
+			arabic -= 5;
+		}else if(arabic >= 4){
+			roman += "IV";
+			arabic -= 4;
+		};
+		
 		return roman;
 	}
 };
@@ -63,6 +78,9 @@ var test = {
 		
 		//Test 8
 		test.compare(8, main.arabicToRoman(2340), "MMCCCXL");
+		
+		//Test 9
+		test.compare(9, main.arabicToRoman(125), "CXXV");
 	},
 	
 	//Does a comparison between an input and an output.
