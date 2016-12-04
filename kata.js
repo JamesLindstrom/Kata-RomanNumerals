@@ -57,12 +57,26 @@ var main = {
 	romanToArabic : function(roman){
 		var len = roman.length;
 		var arabic = 0;
+		var error;
 		
 		for(var i = 0; i < len; i++){
-			arabic += 1000
+			switch(roman[i].toUpperCase()){
+				case "M":
+					arabic += 1000;
+					break;
+				case "D":
+					arabic += 500;
+					break;
+				default:
+					error = "Something is wrong."
+					break;
+			};
 		};
-		
-		return arabic;
+		if(error){
+			return error;
+		}else{
+			return arabic;
+		};
 	}
 };
 
@@ -117,6 +131,9 @@ var test = {
 		
 		//Test 15
 		test.compare(main.romanToArabic("MM"), 2000);
+		
+		//Test 16
+		test.compare(main.romanToArabic("MMD"), 2500);
 	},
 	
 	number: 0,
