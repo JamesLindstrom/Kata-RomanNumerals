@@ -55,7 +55,14 @@ var main = {
 	},
 	
 	romanToArabic : function(roman){
-		return 1000;
+		var len = roman.length;
+		var arabic = 0;
+		
+		for(var i = 0; i < len; i++){
+			arabic += 1000
+		};
+		
+		return arabic;
 	}
 };
 
@@ -107,6 +114,9 @@ var test = {
 		
 		//Test 14
 		test.compare(main.romanToArabic("M"), 1000);
+		
+		//Test 15
+		test.compare(main.romanToArabic("MM"), 2000);
 	},
 	
 	number: 0,
