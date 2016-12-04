@@ -29,53 +29,57 @@ var convert = {
 	arabicToRoman : function(arabic){
 		var roman = "";
 		
-		//1000s and 500s
-		var m = Math.floor(arabic / 1000);
-		roman += "M".repeat(m);
-		arabic -= m * 1000;
-		if(arabic >= 900){
-			roman += "CM";
-			arabic -= 900;
-		}else if(arabic >= 500){
-			roman += "D";
-			arabic -= 500;
-		}else if(arabic >= 400){
-			roman += "CD";
-			arabic -= 400;
+		if(arabic < 4000){
+			//1000s and 500s
+			var m = Math.floor(arabic / 1000);
+			roman += "M".repeat(m);
+			arabic -= m * 1000;
+			if(arabic >= 900){
+				roman += "CM";
+				arabic -= 900;
+			}else if(arabic >= 500){
+				roman += "D";
+				arabic -= 500;
+			}else if(arabic >= 400){
+				roman += "CD";
+				arabic -= 400;
+			};
+			
+			//100s and 50s
+			var c = Math.floor(arabic / 100);
+			roman += "C".repeat(c);
+			arabic -= c * 100;
+			if(arabic >= 90){
+				roman += "XC";
+				arabic -= 90;
+			}else if(arabic >= 50){
+				roman += "L";
+				arabic -= 50;
+			}else if(arabic >= 40){
+				roman += "XL";
+				arabic -= 40;
+			};
+			
+			//10s and 5s
+			var x = Math.floor(arabic / 10);
+			roman += "X".repeat(x);
+			arabic -= x * 10;
+			if(arabic >= 9){
+				roman += "IX";
+				arabic -= 9;
+			}else if(arabic >= 5){
+				roman += "V";
+				arabic -= 5;
+			}else if(arabic == 4){
+				roman += "IV";
+				arabic -= 4;
+			};
+			
+			//1s
+			roman += "I".repeat(arabic);
+		}else{
+			roman = "Number must be less than 4000."
 		};
-		
-		//100s and 50s
-		var c = Math.floor(arabic / 100);
-		roman += "C".repeat(c);
-		arabic -= c * 100;
-		if(arabic >= 90){
-			roman += "XC";
-			arabic -= 90;
-		}else if(arabic >= 50){
-			roman += "L";
-			arabic -= 50;
-		}else if(arabic >= 40){
-			roman += "XL";
-			arabic -= 40;
-		};
-		
-		//10s and 5s
-		var x = Math.floor(arabic / 10);
-		roman += "X".repeat(x);
-		arabic -= x * 10;
-		if(arabic >= 9){
-			roman += "IX";
-			arabic -= 9;
-		}else if(arabic >= 5){
-			roman += "V";
-			arabic -= 5;
-		}else if(arabic == 4){
-			roman += "IV";
-			arabic -= 4;
-		};
-		
-		//1s
-		roman += "I".repeat(arabic);
 		
 		return roman;
 	},
