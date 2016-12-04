@@ -1,5 +1,31 @@
-//Main object
-var main = {
+//Listener object
+var listener = {
+	arabicInput: document.getElementsByName('arabic')[0],
+	romanInput: document.getElementsByName('roman')[0],
+	romanOutput: document.getElementsByClassName('result')[0],
+	arabicOutput: document.getElementsByClassName('result')[1],
+	
+	init : function(){
+		listener.arabicInput.addEventListener('keyup', listener.outputToRoman, false);
+		listener.romanInput.addEventListener('keyup', listener.outputToArabic, false);
+	},
+	
+	outputToRoman : function(){
+		listener.romanOutput.innerHTML = convert.arabicToRoman(listener.arabicInput.value);
+	},
+	
+	outputToArabic : function(){
+		listener.arabicOutput.innerHTML = convert.romanToArabic(listener.romanInput.value);
+	}
+	
+}
+
+listener.init();
+
+console.log(listener.arabicInput);
+
+//Convert object
+var convert = {
 	arabicToRoman : function(arabic){
 		var roman = "";
 		
@@ -134,81 +160,81 @@ var test = {
 		//Test arabicToRoman
 	
 		//Test 1
-		test.compare(main.arabicToRoman(1000), "M");
+		test.compare(convert.arabicToRoman(1000), "M");
 		
 		//Test 2
-		test.compare(main.arabicToRoman(2000), "MM");
+		test.compare(convert.arabicToRoman(2000), "MM");
 		
 		//Test 3
-		test.compare(main.arabicToRoman(900), "CM");
+		test.compare(convert.arabicToRoman(900), "CM");
 		
 		//Test 4
-		test.compare(main.arabicToRoman(1900), "MCM");
+		test.compare(convert.arabicToRoman(1900), "MCM");
 		
 		//Test 5
-		test.compare(main.arabicToRoman(2900), "MMCM");
+		test.compare(convert.arabicToRoman(2900), "MMCM");
 		
 		//Test 6
-		test.compare(main.arabicToRoman(2500), "MMD");
+		test.compare(convert.arabicToRoman(2500), "MMD");
 		
 		//Test 7
-		test.compare(main.arabicToRoman(3400), "MMMCD");
+		test.compare(convert.arabicToRoman(3400), "MMMCD");
 		
 		//Test 8
-		test.compare(main.arabicToRoman(2340), "MMCCCXL");
+		test.compare(convert.arabicToRoman(2340), "MMCCCXL");
 		
 		//Test 9
-		test.compare(main.arabicToRoman(125), "CXXV");
+		test.compare(convert.arabicToRoman(125), "CXXV");
 		
 		//Test 10
-		test.compare(main.arabicToRoman(1008), "MVIII");
+		test.compare(convert.arabicToRoman(1008), "MVIII");
 		
 		//Test 11
-		test.compare(main.arabicToRoman(1490), "MCDXC");
+		test.compare(convert.arabicToRoman(1490), "MCDXC");
 		
 		//Test 12
-		test.compare(main.arabicToRoman(44), "XLIV");
+		test.compare(convert.arabicToRoman(44), "XLIV");
 		
 		//Test 13
-		test.compare(main.arabicToRoman(3839), "MMMDCCCXXXIX");
+		test.compare(convert.arabicToRoman(3839), "MMMDCCCXXXIX");
 		
 		//Test romanToArabic
 		
 		//Test 14
-		test.compare(main.romanToArabic("M"), 1000);
+		test.compare(convert.romanToArabic("M"), 1000);
 		
 		//Test 15
-		test.compare(main.romanToArabic("MM"), 2000);
+		test.compare(convert.romanToArabic("MM"), 2000);
 		
 		//Test 16
-		test.compare(main.romanToArabic("MMD"), 2500);
+		test.compare(convert.romanToArabic("MMD"), 2500);
 		
 		//Test 17
-		test.compare(main.romanToArabic("MMDCC"), 2700);
+		test.compare(convert.romanToArabic("MMDCC"), 2700);
 		
 		//Test 18
-		test.compare(main.romanToArabic("MMCM"), 2900);
+		test.compare(convert.romanToArabic("MMCM"), 2900);
 		
 		//Test 19
-		test.compare(main.romanToArabic("MCCL"), 1250);
+		test.compare(convert.romanToArabic("MCCL"), 1250);
 		
 		//Test 20
-		test.compare(main.romanToArabic("MXL"), 1040);
+		test.compare(convert.romanToArabic("MXL"), 1040);
 		
 		//Test 21
-		test.compare(main.romanToArabic("LV"), 55);
+		test.compare(convert.romanToArabic("LV"), 55);
 		
 		//Test 22
-		test.compare(main.romanToArabic("VIII"), 8);
+		test.compare(convert.romanToArabic("VIII"), 8);
 		
 		//Test 23
-		test.compare(main.romanToArabic("CDIV"), 404);
+		test.compare(convert.romanToArabic("CDIV"), 404);
 		
 		//Test 24
-		test.compare(main.romanToArabic("MMMCMLXXII"), 3972);
+		test.compare(convert.romanToArabic("MMMCMLXXII"), 3972);
 		
 		//Test 25
-		test.compare(main.romanToArabic("CCCXL"), 340);
+		test.compare(convert.romanToArabic("CCCXL"), 340);
 	},
 	
 	number: 0,
