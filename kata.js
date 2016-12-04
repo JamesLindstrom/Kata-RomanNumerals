@@ -43,10 +43,13 @@ var main = {
 		}else if(arabic >= 5){
 			roman += "V";
 			arabic -= 5;
-		}else if(arabic >= 4){
+		}else if(arabic == 4){
 			roman += "IV";
 			arabic -= 4;
 		};
+		
+		//1s
+		roman += "I".repeat(arabic);
 		
 		return roman;
 	}
@@ -81,6 +84,9 @@ var test = {
 		
 		//Test 9
 		test.compare(9, main.arabicToRoman(125), "CXXV");
+		
+		//Test 10
+		test.compare(10, main.arabicToRoman(1008), "MVIII");
 	},
 	
 	//Does a comparison between an input and an output.
