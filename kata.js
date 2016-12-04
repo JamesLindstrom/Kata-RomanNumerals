@@ -7,6 +7,10 @@ var main = {
 		arabic -= m * 1000;
 		if(arabic >= 900){
 			roman += "CM";
+			arabic -= 900;
+		}else if(arabic >= 500){
+			roman += "D";
+			arabic -= 500;
 		};
 		return roman;
 	}
@@ -29,6 +33,9 @@ var test = {
 		
 		//Test 5
 		test.compare(5, main.arabicToRoman(2950), "MMCM");
+		
+		//Test 6
+		test.compare(6, main.arabicToRoman(2550), "MMD");
 	},
 	
 	//Does a comparison between an input and an output.
