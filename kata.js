@@ -103,6 +103,18 @@ var main = {
 				case "V":
 					arabic += 5;
 					break;
+				case "I":
+					//If the next letter is X or V, add 9 or 4 and advance an extra position.
+					if(nextLetter == "X"){
+						i++;
+						arabic += 9;
+					}else if(nextLetter == "V"){
+						i++;
+						arabic += 4;
+					}else{
+						arabic += 1;
+					};
+					break;
 				default:
 					error = "Something is wrong."
 					break;
@@ -185,6 +197,9 @@ var test = {
 		
 		//Test 21
 		test.compare(main.romanToArabic("LV"), 55);
+		
+		//Test 22
+		test.compare(main.romanToArabic("VIII"), 8);
 	},
 	
 	number: 0,
