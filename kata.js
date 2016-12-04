@@ -87,6 +87,15 @@ var test = {
 		
 		//Test 10
 		test.compare(10, main.arabicToRoman(1008), "MVIII");
+		
+		//Test 11
+		test.compare(11, main.arabicToRoman(1490), "MCDXC");
+		
+		//Test 12
+		test.compare(12, main.arabicToRoman(44), "XLIV");
+		
+		//Test 13
+		test.compare(12, main.arabicToRoman(3839), "MMMDCCCXXXIX");
 	},
 	
 	//Does a comparison between an input and an output.
