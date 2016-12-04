@@ -88,6 +88,18 @@ var main = {
 				case "L":
 					arabic += 50;
 					break;
+				case "X":
+					//If the next letter is M or D, add 900 or 400 and advance an extra position.
+					if(nextLetter == "C"){
+						i++;
+						arabic += 90;
+					}else if(nextLetter == "L"){
+						i++;
+						arabic += 40;
+					}else{
+						arabic += 10;
+					};
+					break;
 				default:
 					error = "Something is wrong."
 					break;
@@ -164,6 +176,9 @@ var test = {
 		
 		//Test 19
 		test.compare(main.romanToArabic("MCCL"), 1250);
+		
+		//Test 20
+		test.compare(main.romanToArabic("MXL"), 1040);
 	},
 	
 	number: 0,
