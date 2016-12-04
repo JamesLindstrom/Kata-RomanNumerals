@@ -200,6 +200,15 @@ var test = {
 		
 		//Test 22
 		test.compare(main.romanToArabic("VIII"), 8);
+		
+		//Test 23
+		test.compare(main.romanToArabic("CDIV"), 404);
+		
+		//Test 24
+		test.compare(main.romanToArabic("MMMCMLXXII"), 3972);
+		
+		//Test 25
+		test.compare(main.romanToArabic("CCCXL"), 340);
 	},
 	
 	number: 0,
