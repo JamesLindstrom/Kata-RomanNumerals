@@ -4,10 +4,12 @@ var listener = {
 	romanInput: document.getElementsByName('roman')[0],
 	romanOutput: document.getElementsByClassName('result')[0],
 	arabicOutput: document.getElementsByClassName('result')[1],
+	testBtn: document.getElementsByTagName('button')[0],
 	
 	init : function(){
 		listener.arabicInput.addEventListener('keyup', listener.outputToRoman, false);
 		listener.romanInput.addEventListener('keyup', listener.outputToArabic, false);
+		listener.testBtn.addEventListener('click', test.run, false);
 	},
 	
 	outputToRoman : function(){
@@ -19,8 +21,6 @@ var listener = {
 	}
 	
 }
-
-listener.init();
 
 console.log(listener.arabicInput);
 
@@ -161,6 +161,9 @@ var convert = {
 //Test object
 var test = {
 	run : function(){
+		//Reset results
+		test.output.innerHTML = "";
+	
 		//Test arabicToRoman
 	
 		//Test 1
@@ -239,17 +242,21 @@ var test = {
 		
 		//Test 25
 		test.compare(convert.romanToArabic("CCCXL"), 340);
+		
 	},
 	
 	number: 0,
+	output: document.getElementById('testOutput'),
 	
 	//Does a comparison between an input and an output.
 	compare : function(input, output){
 		test.number++;
 		if(input === output){
-			console.log(`Test number ${test.number} passed.`);
+			test.output.innerHTML += `Test number ${test.number} passed.<br>`;
 		}else{
-			console.log(`Test number ${test.number} failed: ${input} !== ${output}`);
+			test.output.innerHTML += `Test number ${test.number} failed: ${input} !== ${output} <br>`;
 		};
 	}
 };
+
+listener.init();
