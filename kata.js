@@ -5,7 +5,7 @@ var main = {
 		var m = Math.floor(arabic / 1000);
 		roman += "M".repeat(m);
 		arabic -= m * 1000;
-		if(arabic === 900){
+		if(arabic >= 900){
 			roman += "CM";
 		};
 		return roman;
@@ -26,6 +26,9 @@ var test = {
 		
 		//Test 4
 		test.compare(4, main.arabicToRoman(1900), "MCM");
+		
+		//Test 5
+		test.compare(5, main.arabicToRoman(2950), "MMCM");
 	},
 	
 	//Does a comparison between an input and an output.
