@@ -67,6 +67,9 @@ var main = {
 				case "D":
 					arabic += 500;
 					break;
+				case "C":
+					arabic += 100;
+					break;
 				default:
 					error = "Something is wrong."
 					break;
@@ -134,6 +137,9 @@ var test = {
 		
 		//Test 16
 		test.compare(main.romanToArabic("MMD"), 2500);
+		
+		//Test 17
+		test.compare(main.romanToArabic("MMDCC"), 2700);
 	},
 	
 	number: 0,
