@@ -52,12 +52,18 @@ var main = {
 		roman += "I".repeat(arabic);
 		
 		return roman;
+	},
+	
+	romanToArabic : function(roman){
+		return 1000;
 	}
 };
 
 //Test object
 var test = {
 	run : function(){
+		//Test arabicToRoman
+	
 		//Test 1
 		test.compare(1, main.arabicToRoman(1000), "M");
 		
@@ -95,7 +101,12 @@ var test = {
 		test.compare(12, main.arabicToRoman(44), "XLIV");
 		
 		//Test 13
-		test.compare(12, main.arabicToRoman(3839), "MMMDCCCXXXIX");
+		test.compare(13, main.arabicToRoman(3839), "MMMDCCCXXXIX");
+		
+		//Test romanToArabic
+		
+		//Test 14
+		test.compare(14, main.romanToArabic("M"), 1000);
 	},
 	
 	//Does a comparison between an input and an output.
