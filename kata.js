@@ -65,56 +65,59 @@ var test = {
 		//Test arabicToRoman
 	
 		//Test 1
-		test.compare(1, main.arabicToRoman(1000), "M");
+		test.compare(main.arabicToRoman(1000), "M");
 		
 		//Test 2
-		test.compare(2, main.arabicToRoman(2000), "MM");
+		test.compare(main.arabicToRoman(2000), "MM");
 		
 		//Test 3
-		test.compare(3, main.arabicToRoman(900), "CM");
+		test.compare(main.arabicToRoman(900), "CM");
 		
 		//Test 4
-		test.compare(4, main.arabicToRoman(1900), "MCM");
+		test.compare(main.arabicToRoman(1900), "MCM");
 		
 		//Test 5
-		test.compare(5, main.arabicToRoman(2900), "MMCM");
+		test.compare(main.arabicToRoman(2900), "MMCM");
 		
 		//Test 6
-		test.compare(6, main.arabicToRoman(2500), "MMD");
+		test.compare(main.arabicToRoman(2500), "MMD");
 		
 		//Test 7
-		test.compare(7, main.arabicToRoman(3400), "MMMCD");
+		test.compare(main.arabicToRoman(3400), "MMMCD");
 		
 		//Test 8
-		test.compare(8, main.arabicToRoman(2340), "MMCCCXL");
+		test.compare(main.arabicToRoman(2340), "MMCCCXL");
 		
 		//Test 9
-		test.compare(9, main.arabicToRoman(125), "CXXV");
+		test.compare(main.arabicToRoman(125), "CXXV");
 		
 		//Test 10
-		test.compare(10, main.arabicToRoman(1008), "MVIII");
+		test.compare(main.arabicToRoman(1008), "MVIII");
 		
 		//Test 11
-		test.compare(11, main.arabicToRoman(1490), "MCDXC");
+		test.compare(main.arabicToRoman(1490), "MCDXC");
 		
 		//Test 12
-		test.compare(12, main.arabicToRoman(44), "XLIV");
+		test.compare(main.arabicToRoman(44), "XLIV");
 		
 		//Test 13
-		test.compare(13, main.arabicToRoman(3839), "MMMDCCCXXXIX");
+		test.compare(main.arabicToRoman(3839), "MMMDCCCXXXIX");
 		
 		//Test romanToArabic
 		
 		//Test 14
-		test.compare(14, main.romanToArabic("M"), 1000);
+		test.compare(main.romanToArabic("M"), 1000);
 	},
 	
+	number: 0,
+	
 	//Does a comparison between an input and an output.
-	compare : function(testNo, input, output){
+	compare : function(input, output){
+		test.number++;
 		if(input === output){
-			console.log(`Test number ${testNo} passed.`);
+			console.log(`Test number ${test.number} passed.`);
 		}else{
-			console.log(`Test number ${testNo} failed: ${input} !== ${output}`);
+			console.log(`Test number ${test.number} failed: ${input} !== ${output}`);
 		};
 	}
 };
