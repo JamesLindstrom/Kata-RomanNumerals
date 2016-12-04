@@ -60,6 +60,12 @@ var main = {
 		var error;
 		
 		for(var i = 0; i < len; i++){
+			//If there is another letter after this one, record it as nextLetter.
+			var nextLetter = "";
+			if(i + 1 < len){
+				nextLetter = roman[i + 1].toUpperCase();
+			};
+			
 			switch(roman[i].toUpperCase()){
 				case "M":
 					arabic += 1000;
@@ -68,7 +74,16 @@ var main = {
 					arabic += 500;
 					break;
 				case "C":
-					arabic += 100;
+					//If the next letter is M or D, add 900 or 400 and advance an extra position.
+					if(nextLetter == "M"){
+						i++;
+						arabic += 900;
+					}else if(nextLetter == "D"){
+						i++;
+						arabic += 400;
+					}else{
+						arabic += 100;
+					};
 					break;
 				default:
 					error = "Something is wrong."
@@ -140,6 +155,9 @@ var test = {
 		
 		//Test 17
 		test.compare(main.romanToArabic("MMDCC"), 2700);
+		
+		//Test 18
+		test.compare(main.romanToArabic("MMCM"), 2900);
 	},
 	
 	number: 0,
